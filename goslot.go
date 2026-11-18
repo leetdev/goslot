@@ -42,6 +42,7 @@ func New(cfg Config) *GoSlot {
 func (s *GoSlot) Start() {
 	delayRange := int64(s.maxDelay - s.minDelay)
 	stopTime := time.Duration(int(s.stopTime) / len(s.reels))
+	s.isRunning = true
 	for i, reel := range s.reels {
 		go func() {
 			for {
